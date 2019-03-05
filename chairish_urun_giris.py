@@ -32,10 +32,10 @@ def send_mail(imagesNotFound=None, product=None, sku_num=None):
 
 
 def modifyCategory(category):
-    nonpillow = category.split('>')
+
 
     # print(nonpillow)
-    cat = nonpillow[1]
+    cat = category
     # print(cat)
     b = str(cat).split('(')
     inche = (b[0])
@@ -87,8 +87,8 @@ def getMaterial(input):
 
 ################################################################################################
 
-file = 'admin_paneli_new.xlsx'
-dir_input = 'C:\\Users\\hasan\\Desktop\\admin_paneli_foto\\'
+file = '51547-51662.xlsx'
+dir_input = 'C:\\Users\\hasan\\Desktop\\40x40\\'
 imagesNotFound = []
 
 start_time = time()
@@ -106,7 +106,7 @@ except Exception as e:
     print("Exception found" + str(e))
 
 elem.send_keys("hetyemez@yahoo.com")
-
+#hasanemreari
 try:
     elem = browser.find_element_by_id("id_password")
 
@@ -117,15 +117,16 @@ elem.send_keys("etyemez57")
 elem.send_keys(Keys.ENTER)
 sleep(2)
 
-excel_row = 432
+excel_row = 50
+number_of_row = 75
 
 try:
     while excel_row < number_of_row:
-        sku_num = str(excel[1][excel_row])
-        title = excel[0][excel_row]
-        price = excel[6][excel_row]
-        category = excel[2][excel_row]
-        material = excel[9][excel_row]
+        sku_num = str(excel[0][excel_row])
+        title = excel[8][excel_row]
+        price = excel[4][excel_row]
+        category = excel[10][excel_row]
+        material = excel[2][excel_row]
         modifiedCategoryTuple = modifyCategory(category)
         title2 = modifiedCategoryTuple[0]
         inches = getInches(title2)
