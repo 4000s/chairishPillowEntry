@@ -8,7 +8,7 @@ from selenium.webdriver.support.select import Select
 import pyautogui as pg
 import pandas as pd
 
-import DominantColorRGBFinder
+from ChairishPillowEntry import DominantColorRGBFinder
 
 
 # if any exception is happened, this function sends mail with short explanation

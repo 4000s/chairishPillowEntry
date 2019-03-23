@@ -1,6 +1,6 @@
 from PIL import Image,ImageDraw
 import webcolors
-import RGBtoColorName
+from ChairishPillowEntry import RGBtoColorName
 
 
 def closest_colour(requested_colour):
@@ -39,7 +39,7 @@ def get_colors(infile, outfile, numcolors=5, swatchsize=20, resize=150):
         draw.rectangle([posx, 0, posx+swatchsize, swatchsize], fill=col)
         posx = posx + swatchsize
         print(col)
-        colorNameList.append(RGBtoColorName.findNearestColorName(col[0],col[1],col[2],RGBtoColorName.WebColorMap))
+        colorNameList.append(RGBtoColorName.findNearestColorName(col[0], col[1], col[2], RGBtoColorName.WebColorMap))
 
     print(colorNameList)
     del draw
