@@ -117,8 +117,8 @@ elem.send_keys("etyemez57")
 elem.send_keys(Keys.ENTER)
 sleep(2)
 
-excel_row = 50
-number_of_row = 75
+excel_row = 100
+number_of_row = 125
 
 try:
     while excel_row < number_of_row:
