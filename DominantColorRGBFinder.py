@@ -53,6 +53,7 @@ def dominantColorsSet(image):
     #im = im.crop((200, 100, 1000, 850))    yourImage.crop((0, 30, w, h-30)).save(...)
     im=im.crop(((w*0.25),(h*0.15),w*0.75,h*0.85))
     im.save('_0.png')
+    #deneme
 
     colorNameList=[]
     colorNameList=get_colors('_0.png', 'outfile.png')
