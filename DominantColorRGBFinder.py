@@ -43,7 +43,7 @@ def get_colors(infile, outfile, numcolors=5, swatchsize=20, resize=150):
 
     print(colorNameList)
     del draw
-    # pal.save(outfile, "PNG")
+    pal.save(outfile, "PNG")
     return colorNameList
 
 def dominantColorsSet(image):
@@ -52,7 +52,7 @@ def dominantColorsSet(image):
     print(w,h)
     #im = im.crop((200, 100, 1000, 850))    yourImage.crop((0, 30, w, h-30)).save(...)
     im=im.crop(((w*0.25),(h*0.15),w*0.75,h*0.85))
-    # im.save('_0.png')
+    im.save('_0.png')
 
     colorNameList=[]
     colorNameList=get_colors('_0.png', 'outfile.png')
