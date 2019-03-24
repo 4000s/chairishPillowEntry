@@ -8,7 +8,7 @@ from selenium.webdriver.support.select import Select
 import pyautogui as pg
 import pandas as pd
 
-from ChairishPillowEntry import DominantColorRGBFinder
+from ChairishPillowEntry import DominantColorRGBFinder, pillow_config
 
 
 # if any exception is happened, this function sends mail with short explanation
@@ -32,8 +32,6 @@ def send_mail(imagesNotFound=None, product=None, sku_num=None):
 
 
 def modifyCategory(category):
-
-
     # print(nonpillow)
     cat = category
     # print(cat)
@@ -87,13 +85,13 @@ def getMaterial(input):
 
 ################################################################################################
 
-file = '51547-51662.xlsx'
-dir_input = 'C:\\Users\\hasan\\Desktop\\40x40\\'
+file = pillow_config.file
+dir_input = pillow_config.dir_input
 imagesNotFound = []
 
 start_time = time()
 excel = pd.read_excel(file, index_col=None, header=None)
-number_of_row = excel.count().iloc[0]
+
 
 print("Upload Started!")
 browser = webdriver.Chrome()
@@ -106,7 +104,7 @@ except Exception as e:
     print("Exception found" + str(e))
 
 elem.send_keys("hetyemez@yahoo.com")
-#hasanemreari
+
 try:
     elem = browser.find_element_by_id("id_password")
 
@@ -117,8 +115,11 @@ elem.send_keys("etyemez57")
 elem.send_keys(Keys.ENTER)
 sleep(2)
 
-excel_row = 100
-number_of_row = 125
+excel_row = pillow_config.startRow
+number_of_row = pillow_config.endRow
+if pillow_config.endRow == -1:
+    number_of_row = excel.count().iloc[0]
+
 
 try:
     while excel_row < number_of_row:
@@ -471,7 +472,7 @@ try:
             print("Test Pass : Submit ID found")
         except Exception as e:
             print("Exception found" + str(e))
-        elem.click()  # submit butonuna tıklama"""
+        # elem.click()  # submit butonuna tıklama"""
         sleep(6)
 
         excel_row = excel_row + 1
