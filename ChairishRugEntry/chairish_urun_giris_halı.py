@@ -45,7 +45,7 @@ sleep(2)
 
 excel_row = rug_config.startRow
 number_of_row = rug_config.endRow
-if rug_config.startRow == -1:
+if rug_config.endRow == -1:
     number_of_row = excel.count().iloc[0]
 ############################START OF PRODUCT ENTRY####################################
 try:
@@ -102,27 +102,27 @@ try:
             sleep(1)
 
             if image == 1:
-                image_path = dir_input + str(sku_num) + "-" + str(width) + "x" + str(length) + ".jpg"
+                image_path = dir_input + str(sku_num) + ".jpg" #+ "-" + str(width) + "x" + str(length)
             elif image == 2:
-                image_path = dir_input + str(sku_num) + "-" + str(width) + "x" + str(length) + "a.jpg"
+                image_path = dir_input + str(sku_num) + "a.jpg"#+ "-" + str(width) + "x" + str(length)
             elif image == 3:
-                image_path = dir_input + str(sku_num) + "-" + str(width) + "x" + str(length) + "b.jpg"
+                image_path = dir_input + str(sku_num) + "b.jpg"#+ "-" + str(width) + "x" + str(length)
             elif image == 4:
-                image_path = dir_input + str(sku_num) + "-" + str(width) + "x" + str(length) + "c.jpg"
+                image_path = dir_input + str(sku_num) + "c.jpg"#+ "-" + str(width) + "x" + str(length)
             elif image == 5:
-                image_path = dir_input + str(sku_num) + "-" + str(width) + "x" + str(length) + "d.jpg"
+                image_path = dir_input + str(sku_num) + "d.jpg"#+ "-" + str(width) + "x" + str(length)
             elif image == 6:
-                image_path = dir_input + str(sku_num) + "-" + str(width) + "x" + str(length) + "e.jpg"
+                image_path = dir_input + str(sku_num) + "e.jpg"#+ "-" + str(width) + "x" + str(length)
             elif image == 7:
-                image_path = dir_input + str(sku_num) + "-" + str(width) + "x" + str(length) + "f.jpg"
+                image_path = dir_input + str(sku_num) + "f.jpg"#+ "-" + str(width) + "x" + str(length)
             elif image == 8:
-                image_path = dir_input + str(sku_num) + "-" + str(width) + "x" + str(length) + "g.jpg"
+                image_path = dir_input + str(sku_num) + "g.jpg"#+ "-" + str(width) + "x" + str(length)
             elif image == 9:
-                image_path = dir_input + str(sku_num) + "-" + str(width) + "x" + str(length) + "h.jpg"
+                image_path = dir_input + str(sku_num) + "h.jpg"#+ "-" + str(width) + "x" + str(length)
             elif image == 10:
-                image_path = dir_input + str(sku_num) + "-" + str(width) + "x" + str(length) + "i.jpg"
+                image_path = dir_input + str(sku_num) + "i.jpg"#+ "-" + str(width) + "x" + str(length)
             elif image == 11:
-                image_path = dir_input + str(sku_num) + "-" + str(width) + "x" + str(length) + "j.jpg"
+                image_path = dir_input + str(sku_num) + "j.jpg"#+ "-" + str(width) + "x" + str(length)
 
             if os.path.isfile(image_path):
                 try:
