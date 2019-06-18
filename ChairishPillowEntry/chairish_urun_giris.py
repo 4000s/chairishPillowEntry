@@ -165,7 +165,7 @@ try:
         except Exception as e:
             print("Exception found" + str(e))
         elem.click()
-        sleep(0.5)
+        sleep(1)
         if os.path.isfile(dir_input + str(sku_num) + ".jpg"):
             pg.typewrite(dir_input + str(sku_num) + ".jpg")  # "C:\\Users\\hasan\\Desktop\\deneme\\a.jpg")
         else:
@@ -174,9 +174,9 @@ try:
             excel_row = excel_row + 1
             print("*******************************Sıradaki ürüne geçildi********************************************")
             continue
-        sleep(0.5)
+        sleep(1)
         pg.press("enter")
-        sleep(0.5)
+        sleep(1)
         try:
             elem = browser.find_element_by_xpath(
                 '//*[@id="js-basic-fields"]/div[3]/div[2]/fieldset/div/div/div[2]/div[2]/label')
@@ -184,7 +184,7 @@ try:
         except Exception as e:
             print("Exception found" + str(e))
         elem.click()
-        sleep(0.5)
+        sleep(1)
         if os.path.isfile(dir_input + str(sku_num) + "a.jpg"):
             pg.typewrite(dir_input + str(sku_num) + "a.jpg")
         else:
@@ -193,9 +193,9 @@ try:
             print("*******************************Sıradaki ürüne geçildi********************************************")
             excel_row = excel_row + 1
             continue
-        sleep(0.5)
+        sleep(1)
         pg.press("enter")
-        sleep(0.5)
+        sleep(1)
         try:
             elem = browser.find_element_by_xpath(
                 '//*[@id="js-basic-fields"]/div[3]/div[2]/fieldset/div/div/div[2]/div[4]/label')
@@ -203,7 +203,7 @@ try:
         except Exception as e:
             print("Exception found" + str(e))
         elem.click()
-        sleep(0.5)
+        sleep(1)
         if os.path.isfile(dir_input + str(sku_num) + "b.jpg"):
             pg.typewrite(dir_input + str(sku_num) + "b.jpg")
         else:
@@ -212,9 +212,9 @@ try:
             print("*******************************Sıradaki ürüne geçildi********************************************")
             excel_row = excel_row + 1
             continue
-        sleep(0.5)
+        sleep(1)
         pg.press("enter")
-        sleep(0.5)
+        sleep(1)
 
         try:
             elem = browser.find_element_by_id("id_description")
@@ -308,13 +308,6 @@ try:
             print("Exception found" + str(e))
         Select(elem).select_by_visible_text("Turkey")
 
-        try:
-            elem = browser.find_element_by_id("id_sku")
-            print("Test Pass : Sku ID found")
-        except Exception as e:
-            print("Exception found" + str(e))
-
-        elem.send_keys(sku_num)
 
         try:
             elem = browser.find_element_by_id("id_dimension_width")
@@ -352,14 +345,15 @@ try:
 
         try:
             elem = browser.find_element_by_xpath(
-                '//*[@id="js-details-fields"]/div[3]/div[3]/fieldset/div[3]/ul/li[1]/label/span[1]')
+                '//*[@id="js-details-fields"]/div[3]/div[4]/fieldset/div[3]/ul/li[1]/label/span[1]')
+            '//*[@id="id_used_code_0"]'
             print("Test Pass : Used Code SPAN ID found")
         except Exception as e:
             print("Exception found" + str(e))
         elem.click()
         try:
             elem = browser.find_element_by_xpath(
-                '//*[@id="js-details-fields"]/div[3]/div[3]/fieldset/div[4]/ul/li[1]/label/span[1]')
+                '//*[@id="js-details-fields"]/div[3]/div[4]/fieldset/div[4]/ul/li[1]/label/span[1]')
             print("Test Pass : Alterations Code SPAN ID found")
         except Exception as e:
             print("Exception found" + str(e))
@@ -368,7 +362,7 @@ try:
 
         try:
             elem = browser.find_element_by_xpath(
-                '//*[@id="js-details-fields"]/div[3]/div[3]/fieldset/div[5]/ul/li[1]/label/span[1]')
+                '//*[@id="js-details-fields"]/div[3]/div[4]/fieldset/div[5]/ul/li[1]/label/span[1]')
             print("Test Pass : İmperfections Code SPAN ID found")
         except Exception as e:
             print("Exception found" + str(e))
@@ -392,6 +386,15 @@ try:
 
         elem.click()
         sleep(2)
+
+        try:
+            elem = browser.find_element_by_id("id_sku")
+            print("Test Pass : Sku ID found")
+        except Exception as e:
+            print("Exception found" + str(e))
+
+        elem.send_keys(sku_num)
+
         try:
             elem = browser.find_element_by_id("id_price")
             print("Test Pass : Price ID found")
