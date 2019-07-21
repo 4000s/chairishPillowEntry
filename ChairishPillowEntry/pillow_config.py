@@ -1,7 +1,7 @@
 # Hasan Emre ARI
 file = '51733-51878.xlsx'
 dir_input = 'C:\\Users\\hasan\\Desktop\\Pillow 40x60\\'
-startRow = 77
+startRow = 94
 endRow =  100 #if endRow equal '-1', this meaning is go on end of the list
 
 
