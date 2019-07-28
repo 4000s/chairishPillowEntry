@@ -488,7 +488,7 @@ try:
             print("Test Pass : Submit ID found")
         except Exception as e:
             print("Exception found" + str(e))
-        elem.click()  # submit butonuna tıklama"""
+        # elem.click()  # submit butonuna tıklama"""
         sleep(6)
 
         excel_row = excel_row + 1

@@ -272,14 +272,7 @@ try:
         except Exception as e:
             print("Exception found" + str(e))
         Select(elem).select_by_visible_text("Turkey")
-        ############################ SKU ####################################
-        try:
-            elem = browser.find_element_by_id("id_sku")
-            print("Test Pass : Sku ID found")
-        except Exception as e:
-            print("Exception found" + str(e))
 
-        elem.send_keys(sku_num)
         ############################ WIDTH ####################################
         try:
             elem = browser.find_element_by_id("id_dimension_width")
@@ -319,16 +312,19 @@ try:
 
         # =============================================================================
         ############################ CONDITION ####################################
+            # =============================================================================
+
         try:
             elem = browser.find_element_by_xpath(
-                '//*[@id="js-details-fields"]/div[3]/div[3]/fieldset/div[3]/ul/li[1]/label/span[1]')
+                '//*[@id="js-details-fields"]/div[3]/div[4]/fieldset/div[3]/ul/li[1]/label/span[1]')
+            '//*[@id="id_used_code_0"]'
             print("Test Pass : Used Code SPAN ID found")
         except Exception as e:
             print("Exception found" + str(e))
         elem.click()
         try:
             elem = browser.find_element_by_xpath(
-                '//*[@id="js-details-fields"]/div[3]/div[3]/fieldset/div[4]/ul/li[1]/label/span[1]')
+                '//*[@id="js-details-fields"]/div[3]/div[4]/fieldset/div[4]/ul/li[1]/label/span[1]')
             print("Test Pass : Alterations Code SPAN ID found")
         except Exception as e:
             print("Exception found" + str(e))
@@ -337,7 +333,7 @@ try:
 
         try:
             elem = browser.find_element_by_xpath(
-                '//*[@id="js-details-fields"]/div[3]/div[3]/fieldset/div[5]/ul/li[1]/label/span[1]')
+                '//*[@id="js-details-fields"]/div[3]/div[4]/fieldset/div[5]/ul/li[1]/label/span[1]')
             print("Test Pass : İmperfections Code SPAN ID found")
         except Exception as e:
             print("Exception found" + str(e))
@@ -361,6 +357,14 @@ try:
 
         elem.click()
         sleep(2)
+        ############################ SKU ####################################
+        try:
+            elem = browser.find_element_by_id("id_sku")
+            print("Test Pass : Sku ID found")
+        except Exception as e:
+            print("Exception found" + str(e))
+
+        elem.send_keys(sku_num)
         ############################ PRICE ####################################
         try:
             elem = browser.find_element_by_id("id_price")
@@ -442,7 +446,7 @@ try:
             print("Test Pass : Submit ID found")
         except Exception as e:
             print("Exception found" + str(e))
-        elem.click()  # submit butonuna tıklama"""
+        # elem.click()  # submit butonuna tıklama"""
         sleep(6)
 
         excel_row = excel_row + 1
