@@ -80,7 +80,20 @@ def getInches(input):
 
 def getMaterial(input):
     materials = input.split(',')
-    return materials
+    result = []
+    for mat in materials:
+        if mat.__eq__("Wool"):
+            result.append("Wool")
+        elif mat.__eq__("Cotton"):
+            result.append("Cotton")
+        elif mat.__eq__("Cotton Fabric"):
+            result.append("Fabric")
+        elif mat.__eq__("Goat Hair"):
+            result.append("Goat")
+        elif mat.__eq__("Textile Recyle"):
+            result.append("Recycle")
+
+    return result
 
 
 ################################################################################################
@@ -165,7 +178,7 @@ try:
         except Exception as e:
             print("Exception found" + str(e))
         elem.click()
-        sleep(1)
+        sleep(2)
         if os.path.isfile(dir_input + str(sku_num) + ".jpg"):
             pg.typewrite(dir_input + str(sku_num) + ".jpg")  # "C:\\Users\\hasan\\Desktop\\deneme\\a.jpg")
         else:
@@ -176,7 +189,7 @@ try:
             continue
         sleep(1)
         pg.press("enter")
-        sleep(1)
+        sleep(3)
         try:
             elem = browser.find_element_by_xpath(
                 '//*[@id="js-basic-fields"]/div[3]/div[2]/fieldset/div/div/div[2]/div[2]/label')
@@ -184,7 +197,7 @@ try:
         except Exception as e:
             print("Exception found" + str(e))
         elem.click()
-        sleep(1)
+        sleep(2)
         if os.path.isfile(dir_input + str(sku_num) + "a.jpg"):
             pg.typewrite(dir_input + str(sku_num) + "a.jpg")
         else:
@@ -195,7 +208,7 @@ try:
             continue
         sleep(1)
         pg.press("enter")
-        sleep(1)
+        sleep(3)
         try:
             elem = browser.find_element_by_xpath(
                 '//*[@id="js-basic-fields"]/div[3]/div[2]/fieldset/div/div/div[2]/div[4]/label')
@@ -203,7 +216,7 @@ try:
         except Exception as e:
             print("Exception found" + str(e))
         elem.click()
-        sleep(1)
+        sleep(2)
         if os.path.isfile(dir_input + str(sku_num) + "b.jpg"):
             pg.typewrite(dir_input + str(sku_num) + "b.jpg")
         else:
@@ -214,7 +227,7 @@ try:
             continue
         sleep(1)
         pg.press("enter")
-        sleep(1)
+        sleep(2)
 
         try:
             elem = browser.find_element_by_id("id_description")
