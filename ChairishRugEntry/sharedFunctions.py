@@ -23,12 +23,49 @@ def send_mail(imagesNotFound=None, product=None, sku_num=None):
 
 def getMaterial(input):
     materials = input.split(',')
-    return materials
+    result = []
+    for mat in materials:
+        if mat.__eq__("Wool"):
+            result.append("Wool")
+        elif mat.__eq__("Cotton"):
+            result.append("Cotton")
+        elif mat.__eq__("Cotton Fabric"):
+            result.append("Fabric")
+        elif mat.__eq__("Goat Hair"):
+            result.append("Goat")
+        elif mat.__eq__("Textile Recyle"):
+            result.append("Recycle")
+
+    return result
 
 
 def getStyles(input):
     styles = input.split(',')
-    return styles
+    result = []
+
+    for style in styles:
+        if style.__eq__("Mid-Century Modern"):
+            result.append("Mid-Century Modern")
+        elif style.__eq__("Bohemian"):
+            result.append("Boho Chic")
+        elif style.__eq__("Colorful"):
+            result.append("Boho Chic")
+            result.append("Traditional")
+        elif style.__eq__("Floral"):
+            result.append("Traditional")
+        elif style.__eq__("Geometric"):
+            result.append("Traditional")
+            result.append("Mid-Century Modern")
+        elif style.__eq__("Distressed"):
+            result.append("Shabby Chic")
+        elif style.__eq__("Abstract"):
+            result.append("Abstract")
+        else:
+            result.append("Traditional")
+            result.append("Contemporary")
+            result.append("Mid-Century Modern")
+
+    return set(result[:3])
 
 
 def colorMaptoChairish(colorsFromExcel):
@@ -60,8 +97,15 @@ def colorMaptoChairish(colorsFromExcel):
                 break
         if not isFound:
             unFoundColrsList.append(color)
+            if color == "Multicolor":
+                resultColorList.append("red")
+                resultColorList.append("green")
+                resultColorList.append("blue")
 
     return resultColorList, unFoundColrsList
+
+def cm2Inches(cm):
+    return int(cm/2.54)
 
 #
 # ####################################Test##################################################

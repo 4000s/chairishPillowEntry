@@ -482,13 +482,12 @@ try:
             print("Exception found" + str(e))
 
         elem.send_keys('8')
-
         try:
             elem = browser.find_element_by_xpath('/html/body/nav/div/div/div[2]/div[2]/button[2]')
             print("Test Pass : Submit ID found")
         except Exception as e:
             print("Exception found" + str(e))
-        # elem.click()  # submit butonuna tıklama"""
+        elem.click()  # submit butonuna tıklama"""
         sleep(6)
 
         excel_row = excel_row + 1
