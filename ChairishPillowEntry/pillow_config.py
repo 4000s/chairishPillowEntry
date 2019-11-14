@@ -1,8 +1,8 @@
 # Hasan Emre ARI
-file = '52025-52107.xlsx'
-dir_input = 'C:\\Users\\okkaa\\Desktop\\Pillow 30x50\\'
-startRow = 78
-endRow = 81 #if endRow equal '-1', this meaning is go on end of the list
+file = '52108-52161.xlsx'
+dir_input = 'C:\\Users\\okkaa\\Desktop\\52108-52161\\'
+startRow =51
+endRow = 54 #if endRow equal '-1', this meaning is go on end of the list
 
 
 # Okan YILDIRIM

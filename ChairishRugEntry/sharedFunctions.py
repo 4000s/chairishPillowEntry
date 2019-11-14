@@ -64,7 +64,7 @@ def getStyles(input):
             result.append("Traditional")
             result.append("Contemporary")
             result.append("Mid-Century Modern")
-
+    print(set(result[:3]))
     return set(result[:3])
 
 

@@ -223,7 +223,7 @@ try:
             elem.send_keys(str(style))
             sleep(2)
             elem.send_keys(Keys.DOWN)
-            sleep(0.5)
+            sleep(1)
             elem.send_keys(Keys.ENTER)
 
         ############################ MATERIALS ####################################

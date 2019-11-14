@@ -9,6 +9,8 @@ import pyautogui as pg
 import pandas as pd
 
 from ChairishPillowEntry import DominantColorRGBFinder, pillow_config
+from ChairishRugEntry import sharedFunctions
+
 
 
 # if any exception is happened, this function sends mail with short explanation
@@ -137,6 +139,7 @@ if pillow_config.endRow == -1:
 try:
     while excel_row < number_of_row:
         sku_num = str(excel[0][excel_row])
+        colors = excel[1][excel_row]
         title = excel[8][excel_row]
         price = excel[4][excel_row]
         category = excel[10][excel_row]
@@ -189,7 +192,7 @@ try:
             continue
         sleep(1)
         pg.press("enter")
-        sleep(3)
+        sleep(4)
         try:
             elem = browser.find_element_by_xpath(
                 '//*[@id="js-basic-fields"]/div[3]/div[2]/fieldset/div/div/div[2]/div[2]/label')
@@ -197,7 +200,7 @@ try:
         except Exception as e:
             print("Exception found" + str(e))
         elem.click()
-        sleep(2)
+        sleep(3)
         if os.path.isfile(dir_input + str(sku_num) + "a.jpg"):
             pg.typewrite(dir_input + str(sku_num) + "a.jpg")
         else:
@@ -216,7 +219,7 @@ try:
         except Exception as e:
             print("Exception found" + str(e))
         elem.click()
-        sleep(2)
+        sleep(3)
         if os.path.isfile(dir_input + str(sku_num) + "b.jpg"):
             pg.typewrite(dir_input + str(sku_num) + "b.jpg")
         else:
@@ -227,7 +230,7 @@ try:
             continue
         sleep(1)
         pg.press("enter")
-        sleep(2)
+        sleep(3)
 
         try:
             elem = browser.find_element_by_id("id_description")
@@ -247,7 +250,7 @@ try:
 
         elem.click()
 
-        sleep(2)
+        sleep(5)
         # =============================================================================
         #
         try:
@@ -266,17 +269,17 @@ try:
         except Exception as e:
             print("Exception found" + str(e))
 
-        elem.send_keys('turkish')
-        sleep(2)
+        # elem.send_keys('Organic')
+        # sleep(3)
+        # elem.send_keys(Keys.DOWN)
+        # sleep(1)
+        # elem.send_keys(Keys.ENTER)
+        elem.send_keys('Turk')
+        sleep(5)
         elem.send_keys(Keys.DOWN)
-        sleep(0.5)
-        elem.send_keys(Keys.ENTER)
         sleep(1)
-        elem.send_keys('organic')
-        sleep(1.5)
-        elem.send_keys(Keys.DOWN)
-        sleep(0.5)
         elem.send_keys(Keys.ENTER)
+        sleep(1.5)
 
         try:
             elem = browser.find_element_by_id("id_materials")
@@ -288,7 +291,7 @@ try:
             elem.send_keys(str(mat))
             sleep(2)
             elem.send_keys(Keys.DOWN)
-            sleep(0.5)
+            sleep(0.9)
             elem.send_keys(Keys.ENTER)
 
         # *********************************************************************
@@ -297,7 +300,8 @@ try:
             print("Test Pass : Colors ID found")
         except Exception as e:
             print("Exception found" + str(e))
-        colors = DominantColorRGBFinder.dominantColorsSet(dir_input + str(sku_num) + ".jpg")
+        #colors = DominantColorRGBFinder.dominantColorsSet(dir_input + str(sku_num) + ".jpg")
+        colors, declined_colors = sharedFunctions.colorMaptoChairish(colors)
         print(colors, type(colors))
         if colors.__contains__('Dove Color'):
             colors.remove('Dove Color')
@@ -358,7 +362,7 @@ try:
 
         try:
             elem = browser.find_element_by_xpath(
-                '//*[@id="js-details-fields"]/div[3]/div[4]/fieldset/div[3]/ul/li[1]/label/span[1]')
+                '//*[@id="js-details-fields"]/div[3]/div[4]/fieldset/div[4]/ul/li[1]/label/span[1]')
             '//*[@id="id_used_code_0"]'
             print("Test Pass : Used Code SPAN ID found")
         except Exception as e:
@@ -366,7 +370,7 @@ try:
         elem.click()
         try:
             elem = browser.find_element_by_xpath(
-                '//*[@id="js-details-fields"]/div[3]/div[4]/fieldset/div[4]/ul/li[1]/label/span[1]')
+                '//*[@id="js-details-fields"]/div[3]/div[4]/fieldset/div[5]/ul/li[1]/label/span[1]')
             print("Test Pass : Alterations Code SPAN ID found")
         except Exception as e:
             print("Exception found" + str(e))
@@ -375,7 +379,7 @@ try:
 
         try:
             elem = browser.find_element_by_xpath(
-                '//*[@id="js-details-fields"]/div[3]/div[4]/fieldset/div[5]/ul/li[1]/label/span[1]')
+                '//*[@id="js-details-fields"]/div[3]/div[4]/fieldset/div[6]/ul/li[1]/label/span[1]')
             print("Test Pass : İmperfections Code SPAN ID found")
         except Exception as e:
             print("Exception found" + str(e))
@@ -392,7 +396,7 @@ try:
         elem.send_keys('In very good condition.')
 
         try:
-            elem = browser.find_element_by_css_selector("div.form-actions:nth-child(8) > button:nth-child(1)")
+            elem = browser.find_element_by_xpath('//*[@id="js-details-fields"]/div[3]/div[4]/fieldset/div[8]/button')
             print("Test Pass : Next button 2 ID found")
         except Exception as e:
             print("Exception found" + str(e))
